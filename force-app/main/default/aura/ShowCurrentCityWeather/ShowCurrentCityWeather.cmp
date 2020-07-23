@@ -1,5 +1,5 @@
 <aura:component implements="flexipage:availableforRecordHome,force:hasRecordId" 
-                controller="getCurrentWeatherByCityClass" access="public" >
+                controller="getCurrentWeatherByCityClass" access="public">
     <aura:attribute type='Decimal' name='currentTemp'/>
     <aura:attribute type='String' name='cityName'/>
     <aura:attribute type="boolean" name="isCityAvailable" default="false"/>

@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableforRecordHome,force:hasRecordId" 
+                controller="getCurrentWeatherByCityClass" access="public" >
+    <aura:attribute type='Decimal' name='currentTemp'/>
+    <aura:attribute type='String' name='cityName'/>
+    <aura:attribute type="boolean" name="isCityAvailable" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isCityAvailable}" >
+        <lightning:card variant="Narrow" title="Current City Temperature Display" iconName="standard:account">
+            <div class="slds-var-p-around_medium">
+                <lightning:button variant="brand" title="GetCurrentTemp"
+                                  label="Get Current Temperature" onclick="{!c.getCurrentTemp }" /><br></br>
+                <h1 class="slds-p-vertical_medium">
+                    {!v.currentTemp}&#8451;
+                </h1>
+            </div>
+        </lightning:card>
+            <aura:set attribute="else">
+        <lightning:card variant="Narrow" title="Current City Temperature Display" iconName="standard:account">
+            <div class="slds-var-p-around_medium">
+                <lightning:button variant="brand" title="GetCurrentTempDis" label="Get Current Temperature" disabled="true"/>
+            </div>
+        </lightning:card>
+    </aura:set>
+    </aura:if>
+</aura:component>
